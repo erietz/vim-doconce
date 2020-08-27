@@ -13,7 +13,8 @@ syn match doconceComment "^#.*$"
 syn match doconceKeywords "^!bc\|^!ec"
 syn match doconceKeywords "^!bt\|^!et"
 syn match doconceKeywords "^!bquiz\|^!equiz"
-syn match doconceKeywords "^Q:\|^Cw:\|Cr:\|^E:\|K:\|L:\|H:\|NP:"
+syn match doconceKeywords "^Q:\|^Cw:\|^Cr:\|^E:\|^K:\|^L:\|^H:\|^NP:"
+syn match doconceKeywords "^TITLE:\|^AUTHOR:\|^DATE:\|^FIGURE:\|MOVIE:"
 
 hi def link doconceTodos        TODO
 hi def link doconceComment      Comment
