@@ -14,8 +14,9 @@ syn match doconceKeywords "^!bc\|^!ec"
 syn match doconceKeywords "^!bt\|^!et"
 syn match doconceKeywords "^!bquiz\|^!equiz"
 syn match doconceKeywords "^Q:\|^Cw:\|^Cr:\|^E:\|^K:\|^L:\|^H:\|^NP:"
-syn match doconceKeywords "^TITLE:\|^AUTHOR:\|^DATE:\|^FIGURE:\|MOVIE:"
+syn match doconcePreamble "^TITLE:\|^AUTHOR:\|^DATE:\|^FIGURE:\|MOVIE:"
 
 hi def link doconceTodos        TODO
 hi def link doconceComment      Comment
 hi def link doconceKeywords     Keyword
+hi def link doconcePreamble     Special
