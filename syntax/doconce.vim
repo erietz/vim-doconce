@@ -20,3 +20,23 @@ hi def link doconceTodos        TODO
 hi def link doconceComment      Comment
 hi def link doconceKeywords     Keyword
 hi def link doconcePreamble     Special
+
+" LaTeX: {{{3
+" Set embedded LaTex (pandoc extension) highlighting
+" Unset current_syntax so the 2nd include will work
+unlet b:current_syntax
+syn include @LATEX syntax/tex.vim
+syn region pandocLaTeXInlineMath start=/\v\\@<!\$\S@=/ end=/\v\\@<!\$\d@!/ keepend contains=@LATEX
+syn region pandocLaTeXInlineMath start=/\\\@<!\\(/ end=/\\\@<!\\)/ keepend contains=@LATEX
+syn match pandocEscapedDollar /\\\$/ conceal cchar=$
+syn match pandocProtectedFromInlineLaTeX /\\\@<!\${.*}\(\(\s\|[[:punct:]]\)\([^$]*\|.*\(\\\$.*\)\{2}\)\n\n\|$\)\@=/ display
+" contains=@LATEX
+syn region pandocLaTeXMathBlock start=/\$\$/ end=/\$\$/ keepend contains=@LATEX
+syn region pandocLaTeXMathBlock start=/\\\@<!\\\[/ end=/\\\@<!\\\]/ keepend contains=@LATEX
+syn match pandocLaTeXCommand /\\[[:alpha:]]\+\(\({.\{-}}\)\=\(\[.\{-}\]\)\=\)*/ contains=@LATEX
+syn region pandocLaTeXRegion start=/\\begin{\z(.\{-}\)}/ end=/\\end{\z1}/ keepend contains=@LATEX
+" we rehighlight sectioning commands, because otherwise tex.vim captures all text until EOF or a new sectioning command
+syn region pandocLaTexSection start=/\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)\*\=\(\[.*\]\)\={/ end=/\}/ keepend
+syn match pandocLaTexSectionCmd /\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)/ contained containedin=pandocLaTexSection
+syn match pandocLaTeXDelimiter /[[\]{}]/ contained containedin=pandocLaTexSection
+" }}}3
