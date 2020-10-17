@@ -16,15 +16,11 @@ syn match doconceKeywords "^!bquiz\|^!equiz"
 syn match doconceKeywords "^Q:\|^Cw:\|^Cr:\|^E:\|^K:\|^L:\|^H:\|^NP:"
 syn match doconcePreamble "^TITLE:\|^AUTHOR:\|^DATE:\|^FIGURE:\|MOVIE:"
 
-hi def link doconceTodos        TODO
-hi def link doconceComment      Comment
-hi def link doconceKeywords     Keyword
-hi def link doconcePreamble     Special
 
 " LaTeX: {{{3
 " Set embedded LaTex (pandoc extension) highlighting
 " Unset current_syntax so the 2nd include will work
-unlet b:current_syntax
+" unlet b:current_syntax
 syn include @LATEX syntax/tex.vim
 syn region pandocLaTeXInlineMath start=/\v\\@<!\$\S@=/ end=/\v\\@<!\$\d@!/ keepend contains=@LATEX
 syn region pandocLaTeXInlineMath start=/\\\@<!\\(/ end=/\\\@<!\\)/ keepend contains=@LATEX
@@ -40,3 +36,10 @@ syn region pandocLaTexSection start=/\\\(part\|chapter\|\(sub\)\{,2}section\|\(s
 syn match pandocLaTexSectionCmd /\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)/ contained containedin=pandocLaTexSection
 syn match pandocLaTeXDelimiter /[[\]{}]/ contained containedin=pandocLaTexSection
 " }}}3
+
+
+hi def link doconceTodos        TODO
+hi def link doconceComment      Comment
+hi def link doconceKeywords     Keyword
+hi def link doconcePreamble     Special
+
