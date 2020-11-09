@@ -1,5 +1,0 @@
-[{'choices': [['right', '\\(\\frac{x^2}{2}\\)', 'This is how integrals work'],
-              ['wrong', 'foo'],
-              ['wrong', 'bar']],
-  'no': 1,
-  'question': 'What is $\\int x dx$?'}]
