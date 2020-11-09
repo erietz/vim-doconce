@@ -17,6 +17,11 @@ syn match doconcePreamble "^TITLE:\|^AUTHOR:\|^DATE:\|^FIGURE:\|MOVIE:"
 syn match doconceList "^* \|^o "
 syn match doconceFigure "^FIGURE: \[.*\]"
 
+syn match doconceHeading "^======= .* ======="
+syn match doconceHeading "^===== .* ====="
+syn match doconceHeading "^=== .* ==="
+
+hi def link doconceHeading       String
 hi def link doconceTodos         TODO
 hi def link doconceComment       Comment
 hi def link doconceKeywords      Keyword
