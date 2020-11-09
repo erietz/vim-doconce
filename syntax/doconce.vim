@@ -9,9 +9,10 @@ syntax keyword doconceTodos TODO XXX FIXME NOTE
 
 syn match doconceComment "^#.*$"
 
-syn match doconcePreamble /^TITLE:\|^AUTHOR:\|^DATE:/
+syn region foobar oneline matchgroup=doconcePreambleKey start=/^TITLE:\|^AUTHOR:\|^DATE:/ matchgroup=doconcePreambleVal end=/\S.*/
+
 syn match doconceList "^* \|^o "
-syn match doconceFigure "^FIGURE: \[.*\]"
+syn region foobar oneline matchgroup=doconceFigureKey start=/^FIGURE:/ matchgroup=doconceFigureVal end=/\[.*\]/
 
 syn match doconceEmphasis /_.\+_/
 syn match doconceEmphasis /\*.\+\*/
@@ -57,7 +58,9 @@ hi def link doconceHeadingText        String
 hi def link doconceTodos              TODO
 hi def link doconceComment            Comment
 hi def link doconceKeywords           Keyword
-hi def link doconcePreamble           Type
+hi def link doconcePreambleKey        Type
+hi def link doconcePreambleVal        String
 hi def link doconceList               Statement
-hi def link doconceFigure             Identifier
+hi def link doconceFigureKey          Identifier
+hi def link doconceFigureVal          Function
 hi def link doconceEmphasis           Number
