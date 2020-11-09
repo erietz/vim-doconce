@@ -17,7 +17,6 @@ syn region foobar oneline matchgroup=doconceFigureKey start=/^FIGURE:/ matchgrou
 syn match doconceEmphasis /_.\+_/
 syn match doconceEmphasis /\*.\+\*/
 syn match doconceEmphasis /`.\+`/
-syn match doconceEmphasis /``.\+''/
 
 syn match doconceQuizKeyword "^Q:\|^Cw:\|^Cr:\|^E:\|^K:\|^L:\|^H:\|^NP:" contained
 syn region doconceQuizDelim matchgroup=doconceContainer start=/^!bquiz/ end=/^!equiz/ fold transparent contains=ALLBUT,doconcePreamble

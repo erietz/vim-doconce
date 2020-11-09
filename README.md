@@ -1,8 +1,5 @@
 # About
 
-Very basic syntax highlighting for doconce files.
+Vim syntax support for the doconce markup language
 
-I only use this for writing chemistry quizzes so only quiz and \LaTeX
-syntax is currently highlighted.
-
-![Quiz Screenshot](./screenshot.png)
+![Screenshot]([./test/syntax.png])
