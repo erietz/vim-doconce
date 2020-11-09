@@ -44,9 +44,9 @@ syn region doconceLaTeXMathBlock start=/\\\@<!\\\[/ end=/\\\@<!\\\]/ keepend con
 syn match doconceLaTeXCommand /\\[[:alpha:]]\+\(\({.\{-}}\)\=\(\[.\{-}\]\)\=\)*/ contains=@LATEX
 syn region doconceLaTeXRegion start=/\\begin{\z(.\{-}\)}/ end=/\\end{\z1}/ keepend contains=@LATEX
 " we rehighlight sectioning commands, because otherwise tex.vim captures all text until EOF or a new sectioning command
-syn region doconceLaTexSection start=/\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)\*\=\(\[.*\]\)\={/ end=/\}/ keepend
-syn match doconceLaTexSectionCmd /\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)/ contained containedin=doconceLaTexSection
-syn match doconceLaTeXDelimiter /[[\]{}]/ contained containedin=doconceLaTexSection
+syn region doconceLaTeXSection start=/\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)\*\=\(\[.*\]\)\={/ end=/\}/ keepend
+syn match doconceLaTeXSectionCmd /\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\)\=paragraph\)/ contained containedin=doconceLaTexSection
+syn match doconceLaTeXDelimiter /[[\]{}]/ contained containedin=doconceLaTeXSection
 " }}}3
 
 
