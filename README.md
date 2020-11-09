@@ -1,6 +1,10 @@
 # Installation
 
-Plug 'erietz/vim-doconce'
+## Using vim-plug
+
+Add the following line to your `vimrc`
+
+`Plug 'erietz/vim-doconce'`
 
 # About
 
