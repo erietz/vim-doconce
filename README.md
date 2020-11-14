@@ -4,7 +4,7 @@ Vim syntax support for the doconce markup language. Most features
 are now covered.
 
 **TODO**: 
-- [] Embedded code syntax highlighting
+- [ ] Embedded code syntax highlighting
 
 ![Screenshot](./test/syntax.png)
 
