@@ -4,7 +4,7 @@ DATE: today
 
 ======= Section =======
 
-This is sentence with _bold_ and *italics*, `code`, and a ``quote'' in it.
+This is sentence with _bold_, *italics*, `code`, and a ``quote'' in it.
 
 o Numbered lists look like this
   o They can be nested
