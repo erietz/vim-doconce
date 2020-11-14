@@ -101,6 +101,9 @@ final,                   % draft: marks overfull hboxes, figures with paths
 
 \setcounter{tocdepth}{2}  % levels in table of contents
 
+%\VerbatimFootnotes must come after hyperref and footmisc packages
+\VerbatimFootnotes
+
 % Tricks for having figures close to where they are defined:
 % 1. define less restrictive rules for where to put figures
 \setcounter{topnumber}{2}
@@ -115,6 +118,10 @@ final,                   % draft: marks overfull hboxes, figures with paths
 \usepackage[section]{placeins}
 % 3. enable begin{figure}[H] (often leads to ugly pagebreaks)
 %\usepackage{float}\restylefloat{figure}
+
+% newcommands for typesetting inline (doconce) comments
+\newcommand{\shortinlinecomment}[3]{{\color{red}{\bf #1}: #2}}
+\newcommand{\longinlinecomment}[3]{{\color{red}{\bf #1}: #2}}
 
 % prevent orhpans and widows
 \clubpenalty = 10000
@@ -170,7 +177,7 @@ Syntax Testing
 
 % --- begin date ---
 \begin{center}
-Nov 9, 2020
+Nov 13, 2020
 \end{center}
 % --- end date ---
 
@@ -179,12 +186,16 @@ Nov 9, 2020
 
 \section{Section}
 
-This is sentance with \textbf{bold} and \emph{italics} and \texttt{code} in it.
+This is sentence with \textbf{bold} and \emph{italics}, \texttt{code}, and a ``quote'' in it.
 
 \begin{enumerate}
 \item Numbered lists look like this
+\begin{enumerate}
 
-\item Numbered lists look like this
+ \item They can be nested
+\end{enumerate}
+
+\noindent
 \end{enumerate}
 
 \noindent
@@ -192,12 +203,20 @@ This is sentance with \textbf{bold} and \emph{italics} and \texttt{code} in it.
 
 \begin{itemize}
 \item Bullet lists look like this
+\begin{itemize}
 
-\item Bullet lists look like this
-% --- previous heading type: subsection
+  \item They can be nested too
 \end{itemize}
 
 \noindent
+\end{itemize}
+
+\noindent
+We can have a footnote \footnote{Though it is completely unncessary here.}
+
+
+
+% --- previous heading type: subsection
 
 \begin{doconcequiz}
 \refstepcounter{doconcequizcounter}
@@ -242,19 +261,6 @@ bar
 
 
 
-Some code here
-
-\begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
-for i in range(10):
-  print(i)
-\end{minted}
-
-Some equation here
-
-\begin{equation}
-e^{i\pi} + 1 = 0
-\end{equation}
-
 Some figure here
 
 
@@ -267,6 +273,23 @@ Some figure here
 \vspace{6mm}
 
 
+
+% A comment here
+
+And here is an inline comment \shortinlinecomment{Ethan 1}{ change this sentence }{ change this sentence }
+
+Some equation here
+
+\begin{equation}
+e^{i\pi} + 1 = 0
+\end{equation}
+
+Some code here
+
+\begin{minted}[fontsize=\fontsize{9pt}{9pt},linenos=false,mathescape,baselinestretch=1.0,fontfamily=tt,xleftmargin=2mm]{text}
+for i in range(10):
+  print(i)
+\end{minted}
 
 % ------------------- end of main content ---------------
 

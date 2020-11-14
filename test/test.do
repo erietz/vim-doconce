@@ -4,30 +4,35 @@ DATE: today
 
 ======= Section =======
 
-This is sentance with _bold_ and *italics* and `code` in it.
+This is sentence with _bold_ and *italics*, `code`, and a ``quote'' in it.
 
 o Numbered lists look like this
-o Numbered lists look like this
+  o They can be nested
 
 ===== Subsection =====
 
 * Bullet lists look like this
-* Bullet lists look like this
+  * They can be nested too
+
+We can have a footnote [^note]
+
+[^note]: Though it is completely unncessary here.
 
 !bquiz 
 Q: What is $\int x dx$?
-Cr: \(\frac{x^2}{2}\) 
+Cr: \(\frac{x^2}{2}\)
 E: This is how integrals work
 Cw: foo
 Cw: bar
 !equiz
 
-Some code here
+Some figure here
 
-!bc 
-for i in range(10):
-  print(i)
-!ec
+FIGURE: [./syntax.png]
+
+# A comment here
+
+And here is an inline comment [Ethan: change this sentence]
 
 Some equation here
 
@@ -37,6 +42,9 @@ e^{i\pi} + 1 = 0
 \end{equation}
 !et
 
-Some figure here
+Some code here
 
-FIGURE: [./syntax.png]
+!bc
+for i in range(10):
+  print(i)
+!ec

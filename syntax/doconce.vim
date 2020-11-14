@@ -9,25 +9,32 @@ syntax keyword doconceTodos TODO XXX FIXME NOTE
 
 syn match doconceComment "^#.*$"
 
-syn region foobar oneline matchgroup=doconcePreambleKey start=/^TITLE:\|^AUTHOR:\|^DATE:/ matchgroup=doconcePreambleVal end=/\S.*/
+syn region doconceComment start=/\[\w*:/ end=/.*\]/
 
-syn match doconceList "^* \|^o "
+syn match doconceAbstract /^__Abstract.__$/
+
+
+syn region foobar oneline matchgroup=doconcePreambleKey start=/^TITLE:\|^AUTHOR:\|^DATE:/ matchgroup=doconcePreambleVal end=/.*/
+syn region foobar oneline matchgroup=doconcePreambleKey start=/^TOC:/ matchgroup=doconcePreambleVal end="on\|off"
+
+syn region doconceHeadingText matchgroup=doconceHeading start=/^======= / end=/ =======$/ contains=ALLBUT,doconcePreamble
+syn region doconceHeadingText matchgroup=doconceHeading start=/^===== / end=/ =====$/ contains=ALLBUT,doconcePreamble
+syn region doconceHeadingText matchgroup=doconceHeading start=/^=== / end=/ ===$/ contains=ALLBUT,doconcePreamble
+
+syn match doconceList "^ *\* \|^ *o "
 syn region foobar oneline matchgroup=doconceFigureKey start=/^FIGURE:/ matchgroup=doconceFigureVal end=/\[.*\]/
 
-syn match doconceEmphasis /_.\+_/
-syn match doconceEmphasis /\*.\+\*/
-syn match doconceEmphasis /`.\+`/
+syn match doconceEmphasis /_[^_]\+_/
+syn match doconceEmphasis /\*[^*]\+\*/
+syn match doconceEmphasis /`[^`]\+`/
+
+syn match doconceQuote /``.\+''/
 
 syn match doconceQuizKeyword "^Q:\|^Cw:\|^Cr:\|^E:\|^K:\|^L:\|^H:\|^NP:" contained
 syn region doconceQuizDelim matchgroup=doconceContainer start=/^!bquiz/ end=/^!equiz/ fold transparent contains=ALLBUT,doconcePreamble
 
 syn region doconceCodeDelim matchgroup=doconceContainer start=/^!bc/ end=/^!ec/ fold transparent contains=ALLBUT,doconcePreamble,doconceQuizKeyword
 syn region doconceTexDelim matchgroup=doconceContainer start=/^!bt/ end=/^!et/ fold transparent contains=ALLBUT,doconcePreamble,doconceQuizKeyword
-
-syn region doconceHeadingText matchgroup=doconceHeading start=/^======= / end=/ =======$/ contains=ALLBUT,doconcePreamble
-syn region doconceHeadingText matchgroup=doconceHeading start=/^===== / end=/ =====$/ contains=ALLBUT,doconcePreamble
-syn region doconceHeadingText matchgroup=doconceHeading start=/^=== / end=/ ===$/ contains=ALLBUT,doconcePreamble
-
 
 " LaTeX: {{{3
 " Set embedded LaTex (doconce extension) highlighting
@@ -49,17 +56,22 @@ syn match doconceLaTeXSectionCmd /\\\(part\|chapter\|\(sub\)\{,2}section\|\(sub\
 syn match doconceLaTeXDelimiter /[[\]{}]/ contained containedin=doconceLaTeXSection
 " }}}3
 
+syn match doconceSpecial /<linebreak>/
+syn match doconceSpecial /\[\^.*\]:\?/
+syn match doconceSpecial /^----\+/
 
-hi def link doconceQuizKeyword        Identifier
-hi def link doconceContainer          Function
-hi def link doconceHeading            Type
-hi def link doconceHeadingText        String 
+hi def link doconceSpecial            Type
+hi def link doconceQuizKeyword        Number
+hi def link doconceContainer          Type
+hi def link doconceHeading            Statement
+hi def link doconceHeadingText        PreProc 
 hi def link doconceTodos              TODO
 hi def link doconceComment            Comment
-hi def link doconceKeywords           Keyword
-hi def link doconcePreambleKey        Type
-hi def link doconcePreambleVal        String
+hi def link doconceAbstract           String
+hi def link doconcePreambleKey        Statement
+hi def link doconcePreambleVal        PreProc
 hi def link doconceList               Statement
-hi def link doconceFigureKey          Identifier
-hi def link doconceFigureVal          Function
-hi def link doconceEmphasis           Number
+hi def link doconceFigureKey          Number
+hi def link doconceFigureVal          String
+hi def link doconceEmphasis           String
+hi def link doconceQuote              String
