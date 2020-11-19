@@ -3,9 +3,10 @@
 " Maintainer:   Ethan Rietz
 " Filenames:    *.do *.do.txt
 
+syn spell toplevel
 
 " Match TODO comments
-syntax keyword doconceTodos TODO XXX FIXME NOTE
+syn keyword doconceTodos TODO XXX FIXME NOTE
 
 syn match doconceComment "^#.*$"
 
