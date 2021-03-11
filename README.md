@@ -1,7 +1,7 @@
 # About
 
-Vim syntax support for the doconce markup language. Most features
-are now covered.
+Vim syntax support for the [doconce](https://github.com/doconce/doconce/)
+markup language. Most features are now covered.
 
 **TODO**: 
 - [ ] Embedded code syntax highlighting
